@@ -8,12 +8,12 @@ type Compare interface {
 
 type MinHeap []Compare
 
-func (h MinHeap) Len() int {
-	return len(h)
+func (h *MinHeap) Len() int {
+	return len(*h)
 }
 
-func (h MinHeap) Less(i, j int) bool {
-	return h[i].Value() < h[j].Value()
+func (h *MinHeap) Less(i, j int) bool {
+	return (*h)[i].Value() < (*h)[j].Value()
 }
 
 func (h *MinHeap) Swap(i, j int) {
@@ -36,7 +36,7 @@ type SizedMinHeap struct {
 }
 
 func NewSizedMinHeap(size uint32) *SizedMinHeap {
-	h := make(MinHeap, 0)
+	h := make(MinHeap, 0, size)
 	heap.Init(&h)
 	return &SizedMinHeap{
 		Size: size,
