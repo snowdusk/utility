@@ -21,6 +21,11 @@ func TestNewSizedMinHeap(t *testing.T) {
 		minHeap.Push(Node{c})
 	}
 	fmt.Println(minHeap.Heap)
-	sort.Sort(&minHeap.Heap)
+	var tHeap = make(MinHeap, 4)
+	copy(tHeap, minHeap.Heap)
+	sort.Sort(&tHeap)
+	fmt.Println(tHeap)
+	sort.Sort(sort.Reverse(&tHeap))
+	fmt.Println(tHeap)
 	fmt.Println(minHeap.Heap)
 }
