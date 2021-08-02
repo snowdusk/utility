@@ -8,16 +8,16 @@ type Compare interface {
 
 type MinHeap []Compare
 
-func (h *MinHeap) Len() int {
-	return len(*h)
+func (h MinHeap) Len() int {
+	return len(h)
 }
 
-func (h *MinHeap) Less(i, j int) bool {
-	return (*h)[i].Value() < (*h)[j].Value()
+func (h MinHeap) Less(i, j int) bool {
+	return h[i].Value() < h[j].Value()
 }
 
-func (h *MinHeap) Swap(i, j int) {
-	(*h)[i], (*h)[j] = (*h)[j], (*h)[i]
+func (h MinHeap) Swap(i, j int) {
+	h[i], h[j] = h[j], h[i]
 }
 
 func (h *MinHeap) Push(x interface{}) {
