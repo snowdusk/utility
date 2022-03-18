@@ -1,4 +1,4 @@
-package main
+package utility
 
 type Flag[T comparable] struct {
 	limits     []T
