@@ -1,4 +1,4 @@
-module utility
+module github.com/snowdusk/utility
 
 go 1.18
 
